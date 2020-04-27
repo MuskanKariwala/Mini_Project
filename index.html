@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Step1: Upload the dataset</h1>
+<form action="/upload" method= "POST" enctype= "multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+</form>
+<div class="table">
+    {% block body %}
+    <h2>{{title}}</h2>
+    {{ data|safe }}
+    {% endblock %}  
+</div>
+<br>
+  {{ shape }}
+
+<form action="{{ url_for('fill')}}" method= "POST">
+    <button>Fill in Missing Values</button>
+</form>
+
+</body>
+</html>
